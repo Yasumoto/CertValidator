@@ -9,20 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var debug = false
+    
     func checkUrl(url: String) {
         if let serverUrl = URL(string: url) {
             let session = URLSession(configuration: URLSessionConfiguration.default, delegate: URLSessionPinningDelegate(), delegateQueue: nil)
             let request = URLRequest(url: serverUrl)
             let task = session.dataTask(with: request) {
                 if let responded = $1 as? HTTPURLResponse {
-                    print("\(responded)")
+                    if self.debug {
+                        print("\(responded)")
+                    }
                 }
                 if let responseError = $2 {
                     print("Error: \(responseError)")
                     print("Code: \(responseError._code)")
                 } else if let data = $0 {
-                    _ = data.base64EncodedData()
+                    if self.debug {
+                        print(data.base64EncodedData())
+                    }
                 }
             }
             task.resume()

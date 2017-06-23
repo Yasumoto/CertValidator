@@ -1,3 +1,3 @@
 target 'CertValidator' do
-  pod "OpenSSL"
+  pod 'OpenSSL-Universal'
 end
