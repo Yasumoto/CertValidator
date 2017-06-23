@@ -11,9 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     var debug = false
     
+    @IBOutlet weak var issuersTextView: UITextView!
+    @IBOutlet weak var subjectSummaryLabel: UILabel!
+    @IBOutlet weak var commonNameLabel: UILabel!
+    
+    var sessionDelegate = URLSessionPinningDelegate()
+    
     func checkUrl(url: String) {
         if let serverUrl = URL(string: url) {
-            let session = URLSession(configuration: URLSessionConfiguration.default, delegate: URLSessionPinningDelegate(), delegateQueue: nil)
+            let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self.sessionDelegate, delegateQueue: nil)
             let request = URLRequest(url: serverUrl)
             let task = session.dataTask(with: request) {
                 if let responded = $1 as? HTTPURLResponse {
@@ -29,17 +35,27 @@ class ViewController: UIViewController {
                         print(data.base64EncodedData())
                     }
                 }
+                DispatchQueue.main.sync {
+                    self.commonNameLabel.text = self.sessionDelegate.info?.commonName
+                    self.subjectSummaryLabel.text = self.sessionDelegate.info?.subjectSummary
+                    self.issuersTextView.text = self.sessionDelegate.info?.issuers?.joined(separator: "\n")
+                }
             }
             task.resume()
+        }
+    }
+    @IBAction func enteredHostname(_ sender: UITextField) {
+        if let hostname = sender.text {
+            if hostname.contains("https://") {
+                checkUrl(url: hostname)
+            } else {
+                checkUrl(url: "https://\(hostname)")
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        checkUrl(url: "https://www.google.com")
-        checkUrl(url: "https://dev6.slack.com")
-
     }
 
     override func didReceiveMemoryWarning() {
