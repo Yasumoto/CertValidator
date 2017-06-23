@@ -13,6 +13,8 @@
 		D85214231EFCB2D200B205E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85214221EFCB2D200B205E7 /* Assets.xcassets */; };
 		D85214261EFCB2D200B205E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85214241EFCB2D200B205E7 /* LaunchScreen.storyboard */; };
 		D85214311EFCB2D200B205E7 /* CertValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85214301EFCB2D200B205E7 /* CertValidatorTests.swift */; };
+		D852143C1EFCB39F00B205E7 /* URLSessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D852143B1EFCB39F00B205E7 /* URLSessionPinningDelegate.swift */; };
+		D852143E1EFCBFC000B205E7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D852143D1EFCBFC000B205E7 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		D852142C1EFCB2D200B205E7 /* CertValidatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CertValidatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85214301EFCB2D200B205E7 /* CertValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertValidatorTests.swift; sourceTree = "<group>"; };
 		D85214321EFCB2D200B205E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D852143B1EFCB39F00B205E7 /* URLSessionPinningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionPinningDelegate.swift; sourceTree = "<group>"; };
+		D852143D1EFCBFC000B205E7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		D852140F1EFCB2D100B205E7 = {
 			isa = PBXGroup;
 			children = (
+				D852143D1EFCBFC000B205E7 /* Podfile */,
 				D852141A1EFCB2D100B205E7 /* CertValidator */,
 				D852142F1EFCB2D200B205E7 /* CertValidatorTests */,
 				D85214191EFCB2D100B205E7 /* Products */,
@@ -79,6 +84,7 @@
 			children = (
 				D852141B1EFCB2D100B205E7 /* AppDelegate.swift */,
 				D852141D1EFCB2D100B205E7 /* ViewController.swift */,
+				D852143B1EFCB39F00B205E7 /* URLSessionPinningDelegate.swift */,
 				D852141F1EFCB2D200B205E7 /* Main.storyboard */,
 				D85214221EFCB2D200B205E7 /* Assets.xcassets */,
 				D85214241EFCB2D200B205E7 /* LaunchScreen.storyboard */,
@@ -183,6 +189,7 @@
 			files = (
 				D85214261EFCB2D200B205E7 /* LaunchScreen.storyboard in Resources */,
 				D85214231EFCB2D200B205E7 /* Assets.xcassets in Resources */,
+				D852143E1EFCBFC000B205E7 /* Podfile in Resources */,
 				D85214211EFCB2D200B205E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +210,7 @@
 			files = (
 				D852141E1EFCB2D100B205E7 /* ViewController.swift in Sources */,
 				D852141C1EFCB2D100B205E7 /* AppDelegate.swift in Sources */,
+				D852143C1EFCB39F00B205E7 /* URLSessionPinningDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
