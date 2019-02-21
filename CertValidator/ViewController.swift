@@ -38,7 +38,12 @@ class ViewController: UIViewController {
                 DispatchQueue.main.sync {
                     self.commonNameLabel.text = self.sessionDelegate.info?.commonName
                     self.subjectSummaryLabel.text = self.sessionDelegate.info?.subjectSummary
-                    self.issuersTextView.text = self.sessionDelegate.info?.issuers?.joined(separator: "\n")
+                    
+                    var issuersString = ""
+                    if let issuers = self.sessionDelegate.info?.issuers {
+                       issuersString.append("\(issuers.joined(separator: "\n"))")
+                    }
+                    self.issuersTextView.text = issuersString
                 }
             }
             task.resume()
